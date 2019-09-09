@@ -1,5 +1,5 @@
-package com.examplerabbitmq.rabbitmqpublisher;
-
+//package com.examplerabbitmq.rabbitmqpublisher;
+package com.springframework.amqp.rabbitmq;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
