@@ -1,6 +1,7 @@
 package com.examplerabbitmq.rabbitmqpublisher;
 
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -19,7 +20,7 @@ public class RabbitmqpublisherApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         ExchangeRate exr = new ExchangeRate("USD", "EUR");
-        rabbitTemplate.convertAndSend("RExchange", "RRounting", exr);
-
+        rabbitTemplate.setMessageConverter(new Jackson2JsonMessageConverter());
+        rabbitTemplate.convertAndSend("TExchange", "TRouting", exr);
     }
 }
